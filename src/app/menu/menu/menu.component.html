@@ -1,0 +1,23 @@
+<div class="content" role="main">
+  <h2>{{title}}</h2>
+
+  <div class="gourmet">
+
+    <section class="menu">
+      <hr>
+
+      <app-menu-items-list></app-menu-items-list>
+      <router-outlet></router-outlet>
+
+    </section>
+
+    <!-- IF USER --- ASIDE CART -->
+    <!-- <ng-container *ngIf="user">
+      <app-aside></app-aside>
+    </ng-container> -->
+
+  </div>
+
+
+</div>
+

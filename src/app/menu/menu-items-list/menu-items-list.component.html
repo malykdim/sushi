@@ -1,0 +1,17 @@
+ <!-- ITEMS-LIST COMPONENT -->
+ <!-- <app-errors></app-errors> -->
+ <div *ngIf="gourmet.length < 1" class="notification">
+   	<p class="message">No Items</p>
+ </div>
+ <ng-container *ngIf="gourmet">
+    <ul class="item-list">
+		<li	class="item">
+			<app-item
+				*ngFor="let item of gourmet; let i = index"
+        [index]="i"
+				[singleItem] = "item"
+			></app-item>
+		</li>
+    </ul>
+ </ng-container>
+

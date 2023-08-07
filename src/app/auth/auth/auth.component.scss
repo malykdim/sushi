@@ -1,0 +1,161 @@
+@import 'src/styles/main';
+
+.content {
+  @include content;
+  width: 100vw;
+  min-width: 100vw;
+  overflow: hidden;
+
+
+  .container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.78)), url('../../../assets/images/bg-auth.jpg');
+    background-position: center;
+    background-size: cover;
+
+    .lds-facebook {
+      width: 300px;
+      height: 300px;
+      margin-top: -18rem;
+
+      .lds-facebook {
+        display: inline-block;
+        position: relative;
+        width: 30px;
+        height: 30px;
+      }
+      .lds-facebook div {
+        display: inline-block;
+        position: absolute;
+        left: 8px;
+        width: 16px;
+        background: white;
+        animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+      }
+      .lds-facebook div:nth-child(1) {
+        left: 8px;
+        animation-delay: -0.24s;
+      }
+      .lds-facebook div:nth-child(2) {
+        left: 32px;
+        animation-delay: -0.12s;
+      }
+      .lds-facebook div:nth-child(3) {
+        left: 56px;
+        animation-delay: 0;
+      }
+      @keyframes lds-facebook {
+        0% {
+          top: 8px;
+          height: 64px;
+        }
+        50%, 100% {
+          top: 24px;
+          height: 32px;
+        }
+      }
+
+    }
+
+    .error-container {
+      padding: 0 1rem;
+      background-color: $-color-error;
+      border: 1px solid black;
+      border-radius: 4px;
+      color: white;
+      width: 43%;
+      font-family: $font-family-headings;
+      text-align: center;
+      margin-bottom: .5rem;
+    }
+
+    .form-container {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 0;
+        left: -100px;
+
+        .auth-form {
+
+            fieldset {
+                padding: 1rem auto 3rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: none;
+
+                input {
+                    padding: .8rem;
+                    border: 1px solid transparent;
+                    border-radius: 2px;
+                    font-size: 1.4em;
+                }
+
+                .field {
+                    margin: 1rem;
+                }
+
+                .button {
+                  width: 54.7%;
+                  padding: 1rem 2rem;
+                  font-family: $font-family-headings;
+                  font-size: $font-size-buttons;
+                  background-color: #fff;
+                  color: #333;
+                  text-transform: uppercase;
+                  border: none;
+                  border-radius: 2px;
+                  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.472);
+
+                  &:active {
+                      color: rgba(1, 75, 1, .7);
+                      transform: scale(.95);
+                      box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.250);
+                  }
+                  &:disabled {
+                    background: #000;
+                    color: #fff;
+                  }
+                }
+            }
+        }
+    }
+
+    .switch-forms {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 10rem;
+
+      .toggle-link  {
+          padding: 0 .5rem;
+          font-family: $font-family-text;
+          font-size: 1.1em;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+      }
+
+      .login {
+          text-align: center;
+          font-weight: 100;
+          color: $--light;
+          font-family: $font-family-headings;
+          font-size: $font-size * 1.3;
+          margin: auto;
+      }
+    }
+  }
+}
+

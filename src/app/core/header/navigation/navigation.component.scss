@@ -1,0 +1,88 @@
+@import "src/styles/main";
+
+.nav-container {
+  width: 75%;
+  margin: 0;
+  padding: 9px;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+
+  .toggle-menu {
+    // width: 70%;
+    position: absolute;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+    margin-right: 7rem;
+
+    .nav-list {
+      list-style: none;
+      padding: 1.5rem 1rem;
+      margin: 0;
+
+      &--dashboard, &--user {
+          display: flex;
+          gap: 1rem;
+      }
+
+      .nav-item {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem;
+
+        .nav-link {
+            text-decoration: none;
+            font-size: 1.6em;
+            color: $--light;
+        }
+      }
+     .nav-item.active {
+        background: #000;
+        display: flex;
+        gap: 2rem;
+        padding: 1rem;
+      }
+    }
+  }
+
+  .menu-toggler {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+
+    height: 50px;
+    width: 50px;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem 1rem;
+    font-size: 1.6em;
+    border: 1px solid transparent;
+    border-radius: 1px;
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.472);
+
+    &:active {
+        box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.250);
+    }
+
+    @media all and (max-width: 767px) {
+        padding: .1rem 1rem;
+    }
+    @media all and (max-width: 539px) {
+        padding: .1rem 1rem;
+    }
+  }
+
+  // @media screen and (max-width: 900px) {
+  //   height: 50px;
+  //   padding: 9px;
+  // }
+}

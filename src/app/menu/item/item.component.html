@@ -1,0 +1,15 @@
+<!-- MENU-ITEM COMPONENT -->
+
+<!-- shared/card -->
+<div class="card-container">
+  <div class="card" >
+    <a [routerLink]="['/menu/', index]" class="item-link">
+      <div class="image-wrapper">
+        <img src="{{item.image}}" alt="{{item.name}}">
+      </div>
+      <p class="info">{{item.name}}</p>
+      <p class="info">{{item.price}} <span class="currency">&euro;</span></p>
+    </a>
+  </div>
+</div>
+

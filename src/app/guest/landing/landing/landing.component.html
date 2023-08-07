@@ -1,0 +1,30 @@
+<div class="content" role="main">
+  <div class="container">
+    <div class="bg-video">
+      <video class="bg-video__content" autoplay muted loop>
+        <source [src]="gif" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="heading-holder">
+      <h3 class="origin">寿司バー</h3>
+      <h2 class="heading-secondary">
+        {{title}}
+      </h2>
+    </div>
+    <button (click)="onBrowseMenu()">Browse The Menu</button>
+
+    <div class="features-holder">
+      <div class="how-it-works">
+        <p>chose</p>
+        <p>order</p>
+        <p>enjoy</p>
+      </div>
+      <!-- <p class="users-count">
+        <span class="customers">orders delivered :</span> &nbsp;
+        <span class="count">{{counter}}</span>
+      </p> -->
+    </div>
+
+  </div>
+</div>

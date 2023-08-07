@@ -1,0 +1,158 @@
+@import "src/styles/main";
+
+.content {
+  @include content;
+  min-width: 100%;
+  min-height: 100%;
+  background: $--dark;
+  background-image:
+  radial-gradient(
+  rgba(34, 34, 34, 0.35),
+  rgba(34, 34, 34, 0.65)
+  ),
+  url('../../../assets/images/test-2.jpg');
+
+  background-position: center;
+  background-size: cover;
+  background-origin: padding-box;
+  background-repeat: repeat;
+
+  .notification {
+    font-family: $font-family-headings;
+    font-size: $font-size * 1.5;
+    text-align: center;
+    margin-top: 10rem;
+  }
+
+  .item {
+    width: 90%;
+    padding: 0 0 10rem;
+    margin: 3rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .card-container {
+      display: flex;
+      // flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      width: 90%;
+      margin-top: 0;
+      .card {
+        all: unset;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        line-height: 24px;
+        color: $--light;
+        background-color: $--dark;
+        border: 1px solid #eee;
+        border-radius: 2px;
+
+        transition: all 0.2s ease-in-out;
+
+        .image-wrapper {
+          width: 100%;
+          height: 325px;
+          background: $--dark;
+
+          img {
+            display: block;
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        h2, h3, h4 {
+          margin-top: 2rem;
+          font-family: $font-family-headings;
+          font-weight: $font-weight;
+
+          span {
+            font-size: calc($font-size / 1.8);
+          }
+        }
+        .badges {
+          width: 80%;
+          margin-bottom: 1.5rem;
+          display: flex;
+          justify-content: space-between;
+          gap: 1rem;
+          background-color: $--dark;
+
+          .badge {
+            width: 50%;
+            border: 1px solid $--light;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .text {
+              font-family: $font-family-headings;
+              font-size: $font-size * .7;
+              text-align: center;
+              margin: 0 auto;
+            }
+            .button {
+              width: 30%;
+              height: 100%;
+              font-size: $font-size-buttons;
+              display: inline-block;
+              margin: 0;
+              background-color: rgb(151, 100, 101);
+            }
+
+            &.added {
+              background-color: rgb(124, 163, 122);
+            }
+            &.favorite {
+              background-color: rgba(237, 232, 111, 0.905);
+            }
+          }
+        }
+
+        .button {
+          width: 80%;
+          margin-bottom: 1.5rem;
+          padding: .5rem 0;
+          font-family: $font-family-headings;
+          font-size: $font-size-buttons;
+          background-color: $--light;
+          color: $--dark;
+          text-transform: uppercase;
+          border: none;
+          border-radius: 2px;
+          box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.472);
+
+          &:active {
+              color: $-color-success;
+              // transform: scale(.95);
+              // transform: translate(-50%);
+              box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.250);
+          }
+
+        }
+
+      }
+    }
+
+    @media screen and (min-width: 600px) {
+      flex-direction: row;
+    }
+
+  }
+
+  .browse {
+    font-family: $font-family-headings;
+    text-decoration: none;
+    color: $--light;
+    text-align: center;
+  }
+}

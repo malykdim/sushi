@@ -1,0 +1,21 @@
+@import 'src/styles/main.scss';
+
+.nav-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: $--dark;
+  color: $--light;
+  font-family: $font-family-headings;
+  font-weight: 100;
+
+  // @media screen and (max-width: 900px) {
+  //   font-size: math.div($font-size, 1.5);
+
+  // }
+
+    // @media screen and (max-width: 1200px) {
+    // }
+}

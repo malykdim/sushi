@@ -1,0 +1,52 @@
+.link {
+  color: #1976d2;
+  text-decoration: none;
+
+  &:visited,
+  &:hover {
+    color: #0f355b;
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+
+  & .card:not(:last-child) {
+    margin-right: 0;
+
+    & .card:not(.highlight-card) {
+      cursor: pointer;
+    }
+    & .card:not(.highlight-card):hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    }
+
+    & .card:not(.highlight-card):hover .material-icons path {
+      fill: rgb(105, 103, 103);
+    }
+  }
+}
+
+.circle-link {
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  margin: 8px;
+  background-color: white;
+  border: 1px solid #eeeeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: 1s ease-out;
+
+  &:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+}

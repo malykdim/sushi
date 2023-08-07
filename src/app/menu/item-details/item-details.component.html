@@ -1,0 +1,63 @@
+<div class="content" role="main">
+  <!-- <app-errors></app-errors> -->
+  <div *ngIf="item === null" class="notification">
+    no such item
+    <app-loader-small></app-loader-small>
+  </div>
+  <!-- back to menu button maybe? -->
+  <div class="item" *ngIf="item">
+    <div class="card-container" [id]="item.id" #itemId>
+      <div class="card">
+        <div class="image-wrapper">
+          <img src="{{item.image}}" alt="sushi">
+        </div>
+        <h2>{{item.name | uppercase}}</h2>
+        <h4>{{item.ingredients}}</h4>
+        <h3>{{item.price | number : '1.2-4'}} <span>&euro;</span> </h3>
+
+        <!-- IF BADGES -->
+        <div *ngIf="role === 'client'" class="badges">
+          <div *ngIf="added" class="badge added">
+            <span class="text">in cart</span>
+            <button (click)="onRemoveFromCart(id)" class="button">
+              <span class="text">&Chi;</span>
+            </button>
+          </div>
+          <div *ngIf="favorite" class="badge favorite">
+            <span class="text">favorite</span>
+            <button (click)="onUnmark()" class="button">
+              <span class="text">&Chi;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CLIENT ACTIONS -->
+        <ng-container *ngIf="role === 'client'">
+          <button (click)="onAddToCart(id)" class="button">
+            <input type="number" class="qty" id="qty"  />
+            <span>Add to Cart</span>
+          </button>
+          <button (click)="onMarkAsFavorite(id)" class="button">
+            <span>Mark as favorite</span>
+          </button>
+        </ng-container>
+
+        <!-- CHEF ACTIONS -->
+        <ng-container *ngIf="role === 'chef'">
+          <a [routerLink]="['/menu/', item.id, '/edit']" class="button browse">
+            <span>Edit</span>
+          </a>
+          <button (click)="onDeleteItem(item.id)" class="button">
+            <span>Delete</span>
+          </button>
+        </ng-container>
+
+        <!-- ALL USERS -->
+        <a routerLink="/menu" class="button browse">
+          <span>continue browsing</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

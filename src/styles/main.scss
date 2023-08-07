@@ -1,0 +1,159 @@
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nothing+You+Could+Do&display=swap');
+
+$font-family-headings: "Nothing You Could Do", cursive;
+$font-family-text: "Montserrat", sans-serif;
+
+$font-size: 1.2em;
+$font-size-labels: 1.4em;
+$font-size-errors: 1.8em;
+$font-size-buttons: 1em;
+
+$letter-spacing: 0.5em;
+$line-height: 1.4em;
+$font-weight: 100;
+
+/* Variables */
+$--dark: #222;
+$--light: #fff;
+$-color-success: rgba(1, 75, 1, .7);
+$-color-error: rgba(119, 11, 11, .9);
+
+$-color-slash: rgba(150, 150, 150, 0.250);
+
+$h-c-light: rgba(255, 255, 255, 0.650);
+$h-bg-dark: rgba(14, 14, 14, 0.6);
+$card-bg-dark: rgba(14, 14, 14, 0.7);
+
+$text-shadow: 4px 12px 13px rgba(255, 255, 255, 0.350);
+
+$box-shadow: 2px 2px 12px rgba(255, 255, 255, 0.250);
+
+$-button-active-shadow:0px 0px 0px rgba(255, 255, 255, 0.250);
+
+/* Mixins */
+@mixin content {
+  max-width: 960px;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin enter-container {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.78)), url('../../assets/images/bg-sign-in.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin switch-forms {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0rem;
+  position: fixed;
+  top: 8rem;
+}
+
+@mixin form-container {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin form-group {
+  padding: .7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+/* CARD */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+
+  .card {
+    all: unset;
+
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-family: $font-family-headings;
+    line-height: 24px;
+
+    background-color: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 4px;
+
+    transition: all 0.2s ease-in-out;
+
+    &:not(:last-child) {
+      margin-right: 0;
+    }
+    &:not(.highlight-card) {
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+      }
+
+      @media screen and (max-width: 767px) {
+        height: 16px;
+        margin: 8px 0;
+      }
+    }
+
+    &.card-small {
+      height: 16px;
+      width: 168px;
+    }
+
+    &.highlight-card {
+      background-color: #888;
+      color: $--light;
+      font-weight: 600;
+      border: none;
+      width: auto;
+      min-width: 30%;
+      position: relative;
+
+      span {
+        margin-left: 60px;
+
+        @media screen and (max-width: 767px) {
+          margin-left: 72px;
+        }
+      }
+
+      }
+
+      @media screen and (max-width: 767px) {
+        height: 16px;
+        margin: 8px 0;
+      }
+  }
+}
+

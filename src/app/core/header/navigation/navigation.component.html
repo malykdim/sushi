@@ -1,0 +1,73 @@
+<div class="nav-container">
+  <div *ngIf="showMenu" class="toggle-menu ">
+    <!-- COMMON -->
+    <div class="common-menu">
+      <ul class="nav-list nav-list--dashboard">
+        <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/menu" class="nav-link">Menu</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- SWITCH -->
+    <div class="role" [ngSwitch]="role">
+
+      <ul class="nav-list nav-list--user" id="user" *ngSwitchCase="'client'">
+        <!-- CLIENT -->
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/orders/cart" class="nav-link">Cart</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/user/profile" class="nav-link">Profile</a>
+        </li>
+      </ul>
+
+      <ul class="nav-list nav-list--user" id="user" *ngSwitchCase="'chef'">
+        <!-- CHEF -->
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/menu/create" class="nav-link">Cook</a>
+        </li>
+      </ul>
+
+      <ul class="nav-list nav-list--user" id="user" *ngSwitchCase="'admin'">
+        <!-- ADMIN -->
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/usres" id="cart" class="nav-link">Users</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/orders" id="cart" class="nav-link">Orders</a>
+        </li>
+      </ul>
+
+      <ul class="nav-list nav-list--user" id="user" *ngIf="isAuthenticated">
+        <!-- AUTHENTICATED USER -->
+        <li class="nav-item" routerLinkActive="active">
+          <a
+            routerLink="/user/logout"
+            class="nav-link"
+            (click)="onLogout()"
+          >Logout</a>
+        </li>
+      </ul>
+
+      <ul class="nav-list nav-list--user" id="user" *ngSwitchDefault>
+        <!-- GUEST -->
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/user/signup" class="nav-link" *ngIf="!isAuthenticated">Signup</a>
+        </li>
+        <li *ngIf="!isAuthenticated" class="nav-item" routerLinkActive="active">
+          <a routerLink="/user/login" class="nav-link">Login</a>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <!-- TOGGLE SHOW/HIDE MENU -->
+  <div>
+    <button (click)="toggleMenu($event)" type="button" class="menu-toggler">
+      {{showMenu ? '&Chi;' : '&Xi;'}}
+    </button>
+  </div>
+</div>
