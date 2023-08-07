@@ -1,16 +1,10 @@
-# Sushi
+# Sushi 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
+**(in development)**  &nbsp; Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
 
-## Development server
+# Intro
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-# Sushi Bar 
-
-**(in development)**
-
-**Sushi delivery application** | Angular v 14.2.8
+**Sushi delivery application** | Angular version 16.1.1
 
 <div>
     <img width="30" height="50" alt="Screenshot_" src="https://user-images.githubusercontent.com/38568843/206916961-d39c1314-d2b0-4976-981b-ed20b3deed7a.png">&nbsp;
@@ -19,7 +13,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
     <img width="30" height="50" alt="Screenshot_" src="https://user-images.githubusercontent.com/38568843/206916968-cb0ee839-c1f5-417d-9bbd-18522457d79c.png">
 </div>
 
-## &nbsp;
+
 <!--  -->
 ## Functionalities
 
@@ -34,8 +28,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 <details>
     <summary><strong>Logged in users / Customers</strong> can: </summary>
     <ul>
-        <li><strong>Mark item as favorite</strong> and <strong>add item to cart</strong> in the details page</li>
-        <li>View his/her own <strong>profile page</strong>, which contains User information, Favorit items, and Current Cart state</li>
+<!--         <li><strong>Mark item as favorite</strong> and <strong>add item to cart</strong> in the details page</li> -->
+<!--         <li>View his/her own <strong>profile page</strong>, which contains User information, Favorit items, and Current Cart state</li> -->
         <li>Adjust Current Order(<strong>choose the amount</strong> or <strong>remove item</strong>) in <strong>Cart page</strong></li>
         <li>Get informed about the delivery in the <strong>Checkout page</strong></li>
         <li><strong>Logout</strong></li>
@@ -52,6 +46,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
     </ul>
 </details>
 
+<!-- 
 <details>
     <summary><strong>Admin</strong> can: </summary>
     <ul>
@@ -62,7 +57,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
         <li><strong>Logout</strong></li>
     </ul>
 </details>
-
+-->
 ## Pages
 
 <details>
@@ -70,19 +65,19 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
         <li><strong>Home</strong></li>
         <li><strong>Menu</strong></li>
         <li><strong>Details</strong></li>
-        <li><strong>Profile</strong></li>
+<!--         <li><strong>Profile</strong></li> -->
         <li><strong>Cart</strong></li>
-        <li><strong>Proceed</strong></li>
+<!--         <li><strong>Proceed</strong></li> -->
         <li><strong>Create/Edit Item</strong></li>
         <li><strong>Proceed</strong></li>        
-        <li><strong>Admin Panel</strong></li>        
+<!--         <li><strong>Admin Panel</strong></li>         -->
         <li><strong>Sign up, Sign in, Sign out</strong></li>
     </ul>
 </details>
 
     
 ## Backend & Database
-<strong>Node.js/Express</strong> & <strong>MongoDB</strong>
+<strong>Firebase</strong> 
 
 
 
