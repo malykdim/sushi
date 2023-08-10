@@ -1,7 +1,8 @@
 @import "src/styles/main";
 
 .brand {
-  width: 25%;
+  width: auto;
+  height: 95%;
   margin: 0;
 
   display: flex;
@@ -37,6 +38,8 @@
       display: block;
       width: 100%;
       height: 100%;
+      -webkit-filter: invert(100%);
+      filter: invert(100%);
     }
 
     @media screen and (max-width: 900px) {
@@ -52,7 +55,7 @@
   .site-title {
     font-weight: 100;
     font-size: calc($font-size * 1.4);
-    margin: 1rem 0 1rem 1.8rem;
+    margin: 1rem 0 1rem 0.7rem;
   }
 
   @media screen and (max-width: 900px) {

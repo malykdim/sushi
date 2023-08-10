@@ -1,7 +1,8 @@
 @import "src/styles/main";
 
 .nav-container {
-  width: 75%;
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 9px;
   position: relative;
@@ -11,19 +12,25 @@
   justify-content: stretch;
 
   .toggle-menu {
-    // width: 70%;
     position: absolute;
-    right: 1rem;
+    right: 200px;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     padding: 0;
-    margin-right: 7rem;
+    margin-right: 1rem;
+
+
 
     .nav-list {
       list-style: none;
-      padding: 1.5rem 1rem;
+      padding: 0.5rem 0.5rem;
       margin: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: stretch;
+
 
       &--dashboard, &--user {
           display: flex;

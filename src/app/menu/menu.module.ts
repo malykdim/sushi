@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 
 import { MenuComponent } from './menu/menu.component';
 import { MenuItemsListComponent } from './menu-items-list/menu-items-list.component';
@@ -11,15 +11,27 @@ import { ItemDetailsComponent } from './item-details/item-details.component';
 import { Data } from 'src/assets/gourmet-data-backup';
 import { ItemDetailsResolverService } from './item-details/item-details-resolver.service';
 import { SharedModule } from "../shared/shared.module";
+import { AuthGuard } from '../services/auth/auth.guard';
+import { ChefGuard } from '../services/auth/chef.guard';
 
 const routes: Routes = [
 	{
 		path: '',
 		children: [
-		{ path: '', component: MenuComponent },
-		{ path: ':id', component: ItemDetailsComponent, resolve: {items: ItemDetailsResolverService} },
-		{ path: ':id/edit', component: ItemEditComponent, resolve: {items: ItemDetailsResolverService} },
-		{ path: ':id/remove', component: ItemRemoveComponent, resolve: {items: ItemDetailsResolverService} }
+      { path: '', component: MenuComponent },
+      { path: ':id', component: ItemDetailsComponent, resolve: {items: ItemDetailsResolverService} },
+      {
+        path: ':id/edit',
+        component: ItemEditComponent,
+        canActivate: [ AuthGuard, ChefGuard ],
+        resolve: {items: ItemDetailsResolverService}
+      },
+      {
+        path: ':id/remove',
+        component: ItemRemoveComponent,
+        canActivate: [ AuthGuard, ChefGuard ],
+        resolve: {items: ItemDetailsResolverService}
+      }
 		]
 	},
 ];

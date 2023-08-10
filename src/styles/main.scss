@@ -1,6 +1,10 @@
 /* Typography */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nothing+You+Could+Do&display=swap');
 
+body {
+  background: #222;
+}
+
 $font-family-headings: "Nothing You Could Do", cursive;
 $font-family-text: "Montserrat", sans-serif;
 

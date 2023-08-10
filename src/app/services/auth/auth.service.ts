@@ -14,6 +14,7 @@ const webAPIkey = environment.webAPIkey;
 @Injectable({ providedIn: 'root'})
 export class AuthService {
   user = new BehaviorSubject<User | null>(null);
+  private tokenExpirationTimer: any;
 
   constructor(
     private http: HttpClient,
@@ -64,10 +65,43 @@ export class AuthService {
       );
   }
 
+  autoLogin() {
+    const userData: {
+      email: string;
+      id: string;
+      role: string;
+      _token: string;
+      _tokenExpirationDate: string;
+    } = JSON.parse(localStorage.getItem('userData'));
+    if (!userData) {
+      return;
+    }
+
+    const loadedUser = new User(userData.email, userData.id, userData.role, userData._token, new Date(userData._tokenExpirationDate));
+
+    if (loadedUser.token) {
+      this.user.next(loadedUser);
+
+      const expirationDuration = new Date(userData._tokenExpirationDate).getTime() - new Date().getTime();
+      this.autoLogout(expirationDuration);
+    }
+  }
+
   logout() {
     this.user.next(null);
     console.log(this.user);
+    localStorage.removeItem('userData');
+    if (this.tokenExpirationTimer) {
+      clearTimeout(this.tokenExpirationTimer);
+    }
+    this.tokenExpirationTimer = null;
     this.router.navigate(['/']);
+  }
+
+  autoLogout(expirationDuration: number) {
+    this.tokenExpirationTimer = setTimeout(() => {
+      this.logout();
+    }, expirationDuration);
   }
 
   private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
@@ -81,9 +115,13 @@ export class AuthService {
     }
     console.log(role);
 
-    const user = new User(email, userId, token, expirationDate, role);
+    const user = new User(email, userId, role, token, expirationDate);
 
     this.user.next(user);
+
+    this.autoLogout(expiresIn * 1000);
+
+    localStorage.setItem('userData', JSON.stringify(user));
   }
 
   private handleError(errorRes: HttpErrorResponse) {

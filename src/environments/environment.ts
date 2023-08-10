@@ -5,9 +5,11 @@
 export const environment = {
   production: false,
   // Firebase
-  apiURL: 'https://sushi-bar-c0d01-default-rtdb.europe-west1.firebasedatabase.app',
+  // apiURL: 'https://sushi-bar-c0d01-default-rtdb.europe-west1.firebasedatabase.app',
+  apiURL: 'https://sushi-d03cd-default-rtdb.europe-west1.firebasedatabase.app/',
   authEndpoint: 'https://identitytoolkit.googleapis.com/v1/accounts:',
-  webAPIkey: 'AIzaSyBhpCc3ahfeHBUU9dNTbSfWBLFpFU75jYE',
+  // webAPIkey: 'AIzaSyBhpCc3ahfeHBUU9dNTbSfWBLFpFU75jYE',
+  webAPIkey: 'AIzaSyDp96IZWOqyf-eHvUzz4KIrZNRNio4RmEU',
   // Back4App
   // users: 'https://parseapi.back4app.com',
   /*

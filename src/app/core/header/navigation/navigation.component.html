@@ -1,7 +1,7 @@
 <div class="nav-container">
   <div *ngIf="showMenu" class="toggle-menu ">
     <!-- COMMON -->
-    <div class="common-menu">
+    <div class="common-menu nav-list role">
       <ul class="nav-list nav-list--dashboard">
         <li class="nav-item" routerLinkActive="active">
             <a routerLink="/menu" class="nav-link">Menu</a>
@@ -10,7 +10,7 @@
     </div>
 
     <!-- SWITCH -->
-    <div class="role" [ngSwitch]="role">
+    <div class="role nav-list" [ngSwitch]="role">
 
       <ul class="nav-list nav-list--user" id="user" *ngSwitchCase="'client'">
         <!-- CLIENT -->
