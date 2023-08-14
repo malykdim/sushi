@@ -13,6 +13,9 @@
         </div>
         <h2>{{item.name | uppercase}}</h2>
         <h4>{{item.ingredients}}</h4>
+        <!-- <div *ngIf="item.ingredients > 0">
+          <span *ngFor="let ing of item.ingredients"> {{ing.name}} ({{ing.amount}}) </span>
+        </div> -->
         <h3>{{item.price | number : '1.2-4'}} <span>&euro;</span> </h3>
 
         <!-- IF BADGES -->
@@ -44,9 +47,12 @@
 
         <!-- CHEF ACTIONS -->
         <ng-container *ngIf="role === 'chef'">
-          <a [routerLink]="['/menu/', item.id, '/edit']" class="button browse">
+          <a [routerLink]="['/menu', id, 'edit']" class="button browse">
             <span>Edit</span>
           </a>
+          <!-- <a (click)="onEditItem()" class="button browse">
+            <span>Edit</span>
+          </a> -->
           <button (click)="onDeleteItem(item.id)" class="button">
             <span>Delete</span>
           </button>

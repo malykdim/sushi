@@ -16,6 +16,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: $--light;
     // background-image: linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.78)), url('../../../assets/images/bg-auth.jpg');
     // background-position: center;
     // background-size: cover;
@@ -58,7 +59,7 @@
       }
 
       .heading-secondary {
-        margin-top: -5rem;
+        margin-top: -8rem;
         font-family: $font-family-headings;
         font-size: $font-size * 2.2;
         font-weight: $font-weight;
@@ -66,7 +67,14 @@
       }
     }
 
+    .button {
+      @include button;
+      width: 30%;
+      font-weight: 900;
+      cursor: pointer;
+    }
     .features-holder {
+      margin-top: 3rem;
       .users-count {
         margin-top: 7rem;
         font-family: $font-family-headings;
@@ -84,10 +92,17 @@
       }
       .how-it-works {
         display: flex;
+        gap: 7rem;
         align-items: space-around;
         justify-content: space-around;
         font-family: $font-family-headings;
 
+        .feature {
+          font-size: $font-size-labels;
+          padding: 3rem;
+          border: 1px solid $-color-slash;
+          border-radius: 4px;
+        }
       }
     }
   }

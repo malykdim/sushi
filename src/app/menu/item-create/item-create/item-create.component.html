@@ -1,0 +1,143 @@
+<div class="content" role="main">
+  <section class="create container">
+    <!-- ERRORS -->
+    <!-- <div *ngIf="errors$" class="error-container"> -->
+      <!-- Errors: -->
+      <!-- <div class="card error-card" *ngFor="let error of error"> -->
+        <!-- <p class="error">{{errors$ | json}}</p> -->
+      <!-- </div> -->
+    <!-- </div> -->
+
+    <!-- Switch between Add and Edit mode -->
+    <h2 class="mode" *ngIf="isCreateMode">{{ isCreateMode ? 'Cook' : 'Update existing sushi' }}</h2>
+
+    <form (ngSubmit)="onSubmit(createForm)" #createForm="ngForm" class="form">
+
+      <hr>
+
+      <div class="controlls">
+        <button type="submit"  style="margin-right: 10px;" class="button">Create</button> &nbsp;
+        <button type="button" (click)="onCancel()" class="button">Cancel</button>
+      </div>
+
+
+      <fieldset class="fieldset">
+
+        <div class="flexbox-container">
+
+          <div class="flexbox-item">
+
+                <div class="input-container"><!-- name -->
+                  <label class="label">
+                    <input type="text" class="input" placeholder="name" ngModel name="name" #name="ngModel" required>
+                    name
+                  </label>
+                  <div *ngIf="!name.valid && name.touched" class="input-error">
+                    Please name your product
+                  </div>
+                </div>
+
+                <div class="input-container"><!-- image -->
+                  <label class="label">
+                    <input type="text" class="input" ngModel name="image" #image="ngModel" placeholder="/assets/images/example.jpg" required>
+                    imageUrl
+                  </label>
+                  <div *ngIf="!image.valid && image.touched" class="input-error">
+                    Image URL is required
+                  </div>
+                </div>
+
+                <div class="input-container select"><!-- category -->
+                  <label class="label">
+                    <!-- <input ngModel name="category" type="text" required class="input"> -->
+                    <select name="category" id="category-select" [ngModel]="defaultCategroy"  class="input">
+                      <option value="">-- Select Category --</option>
+                      <option value="sashimi">sashimi</option>
+                      <option value="maki">maki</option>
+                      <option value="uramaki">uramaki</option>
+                      <option value="temaki">temaki</option>
+                      <option value="nigiri">nigiri</option>
+                      <option value="garnishes">garnishes</option>
+                      <option value="desserts">desserts</option>
+                      <option value="drinks">drinks</option>
+                      <option value="soups">soups</option>
+                      <option value="salads">salads</option>
+                      <option value="other">other</option>
+                    </select>
+                    category
+                  </label>
+                </div>
+
+                <div class="input-container"><!-- price -->
+                  <label class="label">
+                    <input type="number" class="input" ngModel name="price" #price="ngModel" required placeholder="4.50">
+                    price
+                  </label>
+                  <div *ngIf="!price.valid && price.touched" class="input-error">
+                    Please enter price value
+                  </div>
+                </div>
+
+                <!-- temperature -->
+                <div class="temperature radio">
+                  <label class="label">
+                    cold
+                    <input
+                      type="radio"
+                      ngModel
+                      name="temperature"
+                      [value]="'cold'"
+                      required
+                      class="radio-input"
+                      #temperature="ngModel"
+                    >
+                  </label>
+                  <label class="label">
+                    <input
+                      type="radio"
+                      ngModel
+                      name="temperature"
+                      [value]="'hot'"
+                      required
+                      class="radio-input"
+                      #temperature="ngModel"
+                    >
+                    hot &nbsp;
+                  </label>
+                  <div *ngIf="!temperature.valid && temperature.touched" class="input-error">
+                    Please select temperature value
+                  </div>
+
+                </div>
+
+          </div>
+
+          <!-- PREVIEW -->
+          <div class="flexbox-item ">
+            <div class="preview">
+              <img [src]="image.value" width="100%" height="100%" alt="&nbsp;Please provide &nbsp;an Image URL">
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="flexbox-container">
+          <!-- if ingredients were added -->
+          <div *ngIf="ingredients.length > 0" class="incerts-emitted" style="display: flex;">
+            <span class="text" class="label">ingredients: </span>
+            <span style="margin: 0 0 0 22px; font-size:smaller; color: beige; font-weight: 100;" *ngFor="let single of ingredients">
+             {{single.name }} ({{single.amount}}) <em>|</em>
+            </span>
+          </div>
+        </div>
+
+      </fieldset>
+
+    </form>
+
+    <app-ingredients></app-ingredients>
+
+  </section>
+</div>
+

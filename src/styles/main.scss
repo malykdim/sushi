@@ -84,6 +84,31 @@ $-button-active-shadow:0px 0px 0px rgba(255, 255, 255, 0.250);
   border: none;
 }
 
+@mixin button {
+  width: 15%;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-family: $font-family-headings;
+  font-size: $font-size-buttons;
+  background-color: $--light;
+  color: $--dark;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 1px 1px 10px $h-c-light;
+
+  &:active {
+      color: $-color-success;
+      transform: scale(.95);
+      box-shadow: 0px 0px 0px $--light;
+  }
+  &:disabled {
+    background: $--dark;
+    color: #fff;
+  }
+
+}
+
 /* CARD */
 .card-container {
   display: flex;

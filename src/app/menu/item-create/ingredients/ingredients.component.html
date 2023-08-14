@@ -1,0 +1,24 @@
+<form (ngSubmit)="onAddIngredient(ingredientsForm)" #ingredientsForm="ngForm" class="form">
+
+  <!-- Add functionality -->
+  <div class="add">
+    <button
+    type="submit"
+    class="button"
+    [disabled]="!ingredientsForm.valid"
+    >&nbsp;Add&nbsp;</button>
+  </div>
+
+  <div class="flex-item">
+    <div class="form-group">
+      <label class="label">
+        <input name="name" ngModel type="text" placeholder="ingredient name" class="input" required>
+      </label>
+      <label class="label">
+        <input name="amount" ngModel type="text" placeholder="amount" class="input" required>
+      </label>
+    </div>
+
+  </div>
+
+</form>

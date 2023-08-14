@@ -13,11 +13,10 @@ import { IItem } from 'src/app/shared/interfaces/item';
   styleUrls: ['./menu-items-list.component.scss']
 })
 export class MenuItemsListComponent implements OnInit, OnDestroy {
-  @Input() id: number = 0;
   gourmet: IItem[] = [];
   private gourmetChangedSubscription: Subscription = new Subscription;
-  selected: any = {};
 
+  @Input() id: number = 0;
 
   constructor(
     private gourmetService: GourmetService,
@@ -30,25 +29,20 @@ export class MenuItemsListComponent implements OnInit, OnDestroy {
     this.gourmetChangedSubscription = this.gourmetService.gourmetChanged.subscribe(
       (items: IItem[]) => {
         this.gourmet = items;
-      }
-    )
-    this.storage.fetchItems().subscribe();
-    this.loadGourmet();
-  }
+      });
+      this.storage.fetchItems().subscribe();
+      this.loadGourmet();
+    }
 
-  loadGourmet() {
-    this.gourmet = this.gourmetService.getGourmet();
-    this.gourmetChangedSubscription = this.gourmetService.gourmetChanged
+    loadGourmet() {
+      this.gourmet = this.gourmetService.getGourmet();
+      this.gourmetChangedSubscription = this.gourmetService.gourmetChanged
       .subscribe(
         (items: IItem[]) => {
           this.gourmet = items;
+          console.log(this.gourmet);
         }
       );
-  }
-
-  onItemSelected() {
-    // identify the item
-    console.log(this.id);
   }
 
   ngOnDestroy() {

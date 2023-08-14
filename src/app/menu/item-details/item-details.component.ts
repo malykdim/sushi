@@ -14,17 +14,17 @@ import { IItem } from 'src/app/shared/interfaces/item';
 export class ItemDetailsComponent implements OnInit {
   private user: Subscription | undefined;
   role = 'guest';
-  added = true;
-  favorite = true;
+  added = false;
+  favorite = false;
 
   item: IItem = {
     id: '',
     name: '',
     image: '',
     category: '',
-    ingredients: [],
     temperature: '',
-    price: 1
+    price: 0,
+    ingredients: [],
   }
 
   id: number = 0;
@@ -38,6 +38,10 @@ export class ItemDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    /* when the component first loads
+    const id = this.route.snapshot.params['id'];
+    */
+
     this.user = this.authService.user.subscribe(user => {
       if (user) {
         switch (user.role) {
@@ -48,28 +52,29 @@ export class ItemDetailsComponent implements OnInit {
       } else {
         this.role = 'guest';
       }
-
     })
-    // this.route.data
-    //   .subscribe(
-    //     (data: Data) => {
-    //       console.log(data);
-    //     }
-    //   );
-    // const id = this.route.snapshot.params['id']; // when we first load the component
-    console.log(this.route); // {"id": "undefined"}
+
+    /*
+    this.route.data
+      .subscribe(
+        (data: Data) => {
+          console.log(data);
+        }
+      );
+    */
     this.route.params.subscribe(
       (params: Params) => {
         this.id = Number(params['id']);
-        console.log(this.id); // NaN
         this.item = this.gourmetService.getSushi(this.id);
-        console.log(this.item); // undefined
       }
     );
   }
 
   /* CLIENT */
-  onAddToCart(itemId: number) {this.added = true}
+  onAddToCart(itemId: number) {
+    this.added = true;
+    // this.gourmetService.addToCart(this.item.ingredients);
+  }
 
   onRemoveFromCart(itemId: number) {this.added = true}
 
@@ -78,8 +83,12 @@ export class ItemDetailsComponent implements OnInit {
   onUnmark() {this.favorite = false}
 
   /* CHEF */
+  // onEditItem() {
+  //   this.router.navigate(['/menu', this.id, 'edit']);
+  // }
   onDeleteItem(itemId: string | undefined) {
     // call storage to send request
+    console.log('item ' + this.id + ' was deleted');
   }
 
   ngOnDestroy() {

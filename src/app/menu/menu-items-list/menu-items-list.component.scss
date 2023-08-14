@@ -1,4 +1,4 @@
-@import 'SRC/styles/MAIN';
+@import 'src/styles/main';
 
 .notification {
   font-family: $font-family-headings;
@@ -10,8 +10,9 @@
 .item-list {
   padding: 0 1rem;
   list-style: none;
-
+  overflow: auto;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;

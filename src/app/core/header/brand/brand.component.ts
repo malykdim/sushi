@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./brand.component.scss']
 })
 export class BrandComponent {
-  title: string = 'Sushi Bar';
-
+  title: string = 'Sushi';
 }

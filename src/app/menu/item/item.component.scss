@@ -15,7 +15,9 @@
     display: flex;
     flex-direction: column;
 
-
+    .active {
+      border: 1px solid rgb(103, 130, 103);
+    }
 
     .image-wrapper {
       width: 200px;
