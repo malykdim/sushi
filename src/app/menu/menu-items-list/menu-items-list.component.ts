@@ -31,7 +31,7 @@ export class MenuItemsListComponent implements OnInit, OnDestroy {
         this.gourmet = items;
       });
 
-      // this.storage.fetchItems().subscribe();
+      this.storage.fetchItems().subscribe();
 
       this.loadGourmet();
     }
