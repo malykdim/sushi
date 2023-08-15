@@ -6,7 +6,6 @@ import { exhaustMap, map, take, tap } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
 import { GourmetService } from './gourmet.service';
 import { IItem } from 'src/app/shared/interfaces/item';
-import { Data } from 'src/assets/gourmet-data-backup';
 
 import { environment } from 'src/environments/environment';
 const apiURL = environment.apiURL;
@@ -20,14 +19,10 @@ export class StorageGourmetService {
     private http: HttpClient,
     private gourmetService: GourmetService,
     private authService: AuthService,
-    private backupData: Data
   ) { }
 
-  // used in Landing OnInit
   storeItems() {
-    // add a click listener in the component in which you want to use this method
-    // (to override all the items in the gourmet array on the BE)
-    const gourmet = this.backupData.gourmet;
+    const gourmet = this.gourmetService.getGourmet();
 
     this.http
       .put(
@@ -39,9 +34,7 @@ export class StorageGourmetService {
       });
   }
 
-  // used in Landing,
   fetchItems() {
-
     return this.http
         .get<IItem[]>(
           (apiURL + '/gourmet.json')
@@ -58,23 +51,10 @@ export class StorageGourmetService {
           tap(items => {
             this.gourmetService.setGourmet(items);
           })
-        );
-
-      // .subscribe(items => {
-      //   // forward the received DB data to gourmetService
-      //   this.gourmetService.setGourmet(items);
-      // })
-  }
-
-  // Chef CRUD
-  addItem(item: IItem) {
-    return this.http.post(
-        (apiURL + '/gourmet.json' ),
-        item
-    );
-  }
-
-  delItem(itemId: string) {
-    // return this.http.delete(itemId);
+        )
+        // .subscribe(items => {
+        //   console.log(items);
+        //   this.gourmetService.setGourmet(items);
+        // });
   }
 }

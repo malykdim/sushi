@@ -27,6 +27,9 @@
         <li class="nav-item" routerLinkActive="active">
           <a routerLink="/menu/create" class="nav-link">Cook</a>
         </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a (click)="onSaveToDB()" class="nav-link">Save</a>
+        </li>
       </ul>
 
       <ul class="nav-list nav-list--user" id="user" *ngSwitchCase="'admin'">

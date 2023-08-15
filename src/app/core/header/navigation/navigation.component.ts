@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { StorageGourmetService } from 'src/app/services/gourmet/storage-gourmet.service';
 
 @Component({
   selector: 'app-navigation',
@@ -20,7 +21,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private authService: AuthService,
-    // private store: DataStorageService
+    private storage: StorageGourmetService
   ) { }
 
   ngOnInit(): void {
@@ -48,6 +49,18 @@ export class NavigationComponent implements OnInit, OnDestroy {
     event.preventDefault();
     this.showMenu = !this.showMenu;
   }
+
+
+  onSaveToDB() {
+    // save subscription and unsub!
+    this.storage.storeItems();
+    // .subscribe(items => {
+      //   // forward the received DB data to gourmetService
+      //   this.gourmetService.setGourmet(items);
+      // })
+    console.log('storage.storeItems() called');
+  }
+
 
   public navigate(path: string): void {
     this.router.navigate([path]);

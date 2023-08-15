@@ -13,13 +13,13 @@ export class LandingComponent implements OnInit {
   gif = `assets/images/home.mp4`;
 
   constructor(
-    private storageGourmetService: StorageGourmetService,
+    private storage: StorageGourmetService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.storageGourmetService.storeItems();
+    this.storage.fetchItems();
   }
 
   onBrowseMenu() {

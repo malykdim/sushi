@@ -52,15 +52,6 @@ export class ItemDetailsComponent implements OnInit {
       }
     });
 
-    /*
-    this.route.data
-      .subscribe(
-        (data: Data) => {
-          console.log(data);
-        }
-      );
-    */
-
     this.route.params.subscribe(
       (params: Params) => {
         this.id = Number(params['id']);
@@ -69,7 +60,22 @@ export class ItemDetailsComponent implements OnInit {
     );
   }
 
-  /* CLIENT */
+  /* CHEF */
+  // onEditItem() {
+    //   this.router.navigate(['/menu', this.id, 'edit']);
+    // }
+    onDeleteItem(id: number) {
+      this.gourmetService.removeSushi(this.id);
+      console.log(this.gourmetService.getGourmet());
+      this.router.navigate(['/menu']);
+    }
+
+    ngOnDestroy() {
+      this.user?.unsubscribe();
+    }
+
+
+  /* CLIENT ... to be continued */
   onAddToCart(itemId: number) {
     this.added = true;
     // this.gourmetService.addToCart(this.item.ingredients);
@@ -80,19 +86,4 @@ export class ItemDetailsComponent implements OnInit {
   onMarkAsFavorite(itemId: number) {this.favorite = true}
 
   onUnmark() {this.favorite = false}
-
-  /* CHEF */
-  // onEditItem() {
-  //   this.router.navigate(['/menu', this.id, 'edit']);
-  // }
-  onDeleteItem(id: number) {
-    this.gourmetService.removeSushi(this.id);
-    console.log(this.gourmetService.getGourmet());
-    this.router.navigate(['/menu']);
-  }
-
-  ngOnDestroy() {
-    this.user?.unsubscribe();
-  }
-
 }

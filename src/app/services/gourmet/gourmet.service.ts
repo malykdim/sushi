@@ -3,13 +3,17 @@ import { Subject } from 'rxjs';
 
 import { IItem } from 'src/app/shared/interfaces/item';
 import { Ingredient } from 'src/app/shared/interfaces/ingredient.model';
+import { Data } from 'src/assets/gourmet-data-backup';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class GourmetService {
-  private gourmet: IItem[] = [];
   gourmetChanged = new Subject<IItem[]>();
+
+  gourmetPreload = this.backupData.gourmet;
+  private gourmet: IItem[] = [];
 
   private ingredients: Ingredient[] = [];
   ingredientsChanged = new Subject<Ingredient[]>();
@@ -17,7 +21,9 @@ export class GourmetService {
 
   error = new Subject<string>();
 
-  constructor(  ) { }
+  constructor(
+    private backupData: Data
+  ) {}
 
   /* GOURMET */
   setGourmet(sushies: IItem[]) {
@@ -26,13 +32,13 @@ export class GourmetService {
     this.reloadGourmet();
   }
 
-  getGourmet() {
-    return this.gourmet.slice();
-  }
-
   private reloadGourmet() {
     this.gourmetChanged.next(this.gourmet.slice());
     console.log(this.gourmet);
+  }
+
+  getGourmet() {
+    return this.gourmet.slice();
   }
 
   /* SINGLE ITEM */
@@ -81,10 +87,5 @@ export class GourmetService {
 
   private emitIngredients() {
     this.ingredientsChanged.next(this.ingredients.slice());
-  }
-
-  /* CLIENT (outsource to dedicated service) */
-  addToCart() {
-    //  TODO
   }
 }
