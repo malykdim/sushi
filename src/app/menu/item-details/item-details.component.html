@@ -12,10 +12,9 @@
           <img src="{{item.image}}" alt="sushi">
         </div>
         <h2>{{item.name | uppercase}}</h2>
-        <h4>{{item.ingredients}}</h4>
-        <!-- <div *ngIf="item.ingredients > 0">
+        <div *ngIf="item.ingredients" class="ingredients">
           <span *ngFor="let ing of item.ingredients"> {{ing.name}} ({{ing.amount}}) </span>
-        </div> -->
+        </div>
         <h3>{{item.price | number : '1.2-4'}} <span>&euro;</span> </h3>
 
         <!-- IF BADGES -->
@@ -53,7 +52,7 @@
           <!-- <a (click)="onEditItem()" class="button browse">
             <span>Edit</span>
           </a> -->
-          <button (click)="onDeleteItem(item.id)" class="button">
+          <button (click)="onDeleteItem(id)" class="button">
             <span>Delete</span>
           </button>
         </ng-container>

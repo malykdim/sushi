@@ -38,9 +38,7 @@ export class ItemDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    /* when the component first loads
-    const id = this.route.snapshot.params['id'];
-    */
+    /* when the component first loads: const id = this.route.snapshot.params['id']; */
 
     this.user = this.authService.user.subscribe(user => {
       if (user) {
@@ -52,7 +50,7 @@ export class ItemDetailsComponent implements OnInit {
       } else {
         this.role = 'guest';
       }
-    })
+    });
 
     /*
     this.route.data
@@ -62,6 +60,7 @@ export class ItemDetailsComponent implements OnInit {
         }
       );
     */
+
     this.route.params.subscribe(
       (params: Params) => {
         this.id = Number(params['id']);
@@ -86,9 +85,10 @@ export class ItemDetailsComponent implements OnInit {
   // onEditItem() {
   //   this.router.navigate(['/menu', this.id, 'edit']);
   // }
-  onDeleteItem(itemId: string | undefined) {
-    // call storage to send request
-    console.log('item ' + this.id + ' was deleted');
+  onDeleteItem(id: number) {
+    this.gourmetService.removeSushi(this.id);
+    console.log(this.gourmetService.getGourmet());
+    this.router.navigate(['/menu']);
   }
 
   ngOnDestroy() {

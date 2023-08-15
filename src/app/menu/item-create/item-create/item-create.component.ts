@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 import { GourmetService } from 'src/app/services/gourmet/gourmet.service';
 import { Ingredient } from '../../../shared/interfaces/ingredient.model';
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-item-create',
@@ -27,7 +27,8 @@ export class ItemCreateComponent implements OnInit {
 
   constructor(
     private gourmetService: GourmetService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -41,6 +42,7 @@ export class ItemCreateComponent implements OnInit {
 
   onCancel() {
     this.createForm.reset();
+    this.router.navigate(['../'], {relativeTo: this.route})
   }
 
   onSubmit(form: NgForm) {

@@ -45,7 +45,7 @@ export class GourmetService {
     this.reloadGourmet();
   }
 
-  editSushi(id: any, newItem: IItem) {
+  editSushi(id: number, newItem: IItem) {
     this.gourmet[id] = newItem;
     this.reloadGourmet();
   }

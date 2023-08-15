@@ -74,10 +74,17 @@
           font-family: $font-family-headings;
           font-weight: $font-weight;
 
+        }
+
+        .ingredients {
+          margin-top: 1rem;
+
           span {
-            font-size: calc($font-size / 1.8);
+            font-family: $font-family-headings;
+            font-size: calc($font-size / 0.85);
           }
         }
+
         .badges {
           width: 80%;
           margin-bottom: 1.5rem;

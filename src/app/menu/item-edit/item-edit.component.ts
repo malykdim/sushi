@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 
 import { GourmetService } from 'src/app/services/gourmet/gourmet.service';
 import { Ingredient } from 'src/app/shared/interfaces/ingredient.model';
-import { Item } from 'src/app/shared/interfaces/item.model';
+// import { Item } from 'src/app/shared/interfaces/item.model';
 
 @Component({
   selector: 'app-item-edit',
