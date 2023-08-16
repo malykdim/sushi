@@ -2,6 +2,8 @@
 
 **(in development)**  &nbsp; Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
 
+'chef' functionality can be tested by logging in as chef@sushi.com / 123456
+
 # Intro
 
 **Sushi delivery application** | Angular version 16.1.1
