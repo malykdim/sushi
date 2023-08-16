@@ -7,7 +7,7 @@ import { GourmetService } from "src/app/services/gourmet/gourmet.service";
 import { IItem } from "src/app/shared/interfaces/item";
 
 @Injectable({ providedIn: 'root' })
-export class ItemDetailsResolverService implements Resolve<IItem[]> {
+export class ItemDetailsResolverService implements Resolve<IItem> {
 
   constructor(
     private storageGourmet: StorageGourmetService,
@@ -17,12 +17,9 @@ export class ItemDetailsResolverService implements Resolve<IItem[]> {
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<IItem[]> | Promise<IItem[]> | IItem[] {
-    const gourmet = this.gourmetService.getGourmet();
-    if (gourmet.length === 0) {
-      return this.storageGourmet.fetchItems();
-    } else {
-      return gourmet;
-    }
+  ): Observable<IItem> | Promise<IItem> | IItem {
+    const id = Number(route.paramMap.get('id'));
+
+    return this.gourmetService.getSushi(id);
   }
 }

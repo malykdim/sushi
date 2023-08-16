@@ -17,27 +17,29 @@ import { ItemCreateComponent } from './item-create/item-create/item-create.compo
 import { ItemEditComponent } from './item-edit/item-edit.component';
 import { ItemRemoveComponent } from './item-remove/item-remove.component';
 import { IngredientsComponent } from './item-create/ingredients/ingredients.component';
+import { ResolveGourmetService } from '../services/gourmet/resolveGourmet.service';
 
 const routes: Routes = [
 	{
 		path: '',
 		children: [
       { path: '', component: MenuComponent },
-      { path: 'create', component: ItemCreateComponent },
-      { path: ':id', component: ItemDetailsComponent, resolve: {items: ItemDetailsResolverService} },
+      { path: 'create', component: ItemCreateComponent, resolve: {items: ResolveGourmetService} },
+      { path: ':id', component: ItemDetailsComponent, resolve: {items: ResolveGourmetService} },
       {
         path: ':id/edit',
         component: ItemEditComponent,
         canActivate: [ AuthGuard, ChefGuard ],
-        resolve: {items: ItemDetailsResolverService}
+        resolve: {items: ResolveGourmetService}
       },
       {
         path: ':id/remove',
         component: ItemRemoveComponent,
         canActivate: [ AuthGuard, ChefGuard ],
-        resolve: {items: ItemDetailsResolverService}
+        resolve: {items: ResolveGourmetService}
       }
-		]
+		],
+    resolve: {items: ResolveGourmetService}
 	},
 ];
 

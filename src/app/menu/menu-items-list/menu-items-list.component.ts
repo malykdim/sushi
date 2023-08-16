@@ -31,21 +31,12 @@ export class MenuItemsListComponent implements OnInit, OnDestroy {
         this.gourmet = items;
       });
 
-      this.storage.fetchItems().subscribe();
-
       this.loadGourmet();
     }
 
     loadGourmet() {
-      this.gourmet = this.gourmetService.getGourmet(); // 8 ITEMS
+      this.gourmet = this.gourmetService.getGourmet();
       console.log(this.gourmet);
-      // this.gourmetChangedSubscription = this.gourmetService.gourmetChanged
-      // .subscribe(
-      //   (items: IItem[]) => {
-      //     this.gourmet = items;
-      //     console.log(this.gourmet);
-      //   }
-      // );
   }
 
   ngOnDestroy() {

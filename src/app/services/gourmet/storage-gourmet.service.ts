@@ -51,10 +51,6 @@ export class StorageGourmetService {
           tap(items => {
             this.gourmetService.setGourmet(items);
           })
-        )
-        // .subscribe(items => {
-        //   console.log(items);
-        //   this.gourmetService.setGourmet(items);
-        // });
+        );
   }
 }

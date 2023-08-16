@@ -3,7 +3,6 @@ import { Subject } from 'rxjs';
 
 import { IItem } from 'src/app/shared/interfaces/item';
 import { Ingredient } from 'src/app/shared/interfaces/ingredient.model';
-import { Data } from 'src/assets/gourmet-data-backup';
 
 
 @Injectable({
@@ -12,7 +11,6 @@ import { Data } from 'src/assets/gourmet-data-backup';
 export class GourmetService {
   gourmetChanged = new Subject<IItem[]>();
 
-  gourmetPreload = this.backupData.gourmet;
   private gourmet: IItem[] = [];
 
   private ingredients: Ingredient[] = [];
@@ -21,9 +19,7 @@ export class GourmetService {
 
   error = new Subject<string>();
 
-  constructor(
-    private backupData: Data
-  ) {}
+  constructor() {}
 
   /* GOURMET */
   setGourmet(sushies: IItem[]) {
@@ -34,7 +30,6 @@ export class GourmetService {
 
   private reloadGourmet() {
     this.gourmetChanged.next(this.gourmet.slice());
-    console.log(this.gourmet);
   }
 
   getGourmet() {
