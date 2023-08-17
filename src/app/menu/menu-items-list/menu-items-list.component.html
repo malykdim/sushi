@@ -5,13 +5,12 @@
  </div>
  <ng-container *ngIf="gourmet">
     <ul class="item-list">
-      <li	class="item">
         <app-item
           *ngFor="let item of gourmet; let i = index"
           [index]="i"
           [singleItem] = "item"
+          class="item"
         ></app-item>
-      </li>
     </ul>
  </ng-container>
 

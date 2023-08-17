@@ -1,5 +1,5 @@
 <div class="row content" role="main">
-  <div class="col-xs-12 col-md-6 col-md-offset-3 container">
+  <div class="container">
     <!-- SPINNER TEST -->
     <div *ngIf="isLoading" class="lds-facebook">
       <div></div>
@@ -72,11 +72,11 @@
             </label>
           </div>
 
-          <div>
-            <button type="submit" [disabled]="!authForm.valid" class="btn btn-primary field">
+          <div class="cta">
+            <button type="submit" [disabled]="!authForm.valid" class="btn btn-primary field button">
               {{ isLoginMode ? 'Login' : 'Sign Up'}}
             </button> |
-            <button type="button" (click)="onSwitchMode()" class="btn btn-primary field">
+            <button type="button" (click)="onSwitchMode()" class="btn btn-primary field button">
               {{ isLoginMode ? 'Switch to Signup' : 'Switch to Login'}}
             </button>
           </div>

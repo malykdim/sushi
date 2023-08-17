@@ -3,7 +3,6 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 
 import { FooterComponent } from "./footer/footer.component";
-import { ToolbarComponent } from './header/toolbar/toolbar.component';
 import { HeaderComponent } from './header/header.component';
 import { BrandComponent } from './header/brand/brand.component';
 import { NavigationComponent } from './header/navigation/navigation.component';
@@ -13,7 +12,6 @@ import { Data } from "src/assets/gourmet-data-backup";
 @NgModule({
   declarations: [
     FooterComponent,
-    ToolbarComponent,
     HeaderComponent,
     BrandComponent,
     NavigationComponent
@@ -24,7 +22,6 @@ import { Data } from "src/assets/gourmet-data-backup";
   ],
   exports: [
     FooterComponent,
-    ToolbarComponent,
     HeaderComponent
   ],
    providers: [ Data ]

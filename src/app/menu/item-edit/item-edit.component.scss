@@ -4,6 +4,7 @@
   @include content;
   width: 100vw;
   min-width: 100vw;
+  height: 100%;
   overflow: hidden;
 
   background-image: radial-gradient(
@@ -18,6 +19,7 @@
 
   h2 {
     font-weight: 100;
+    color: $--light;
   }
 
   .edit {
@@ -30,13 +32,19 @@
 
     .form {
       max-width: 80%;
-      margin: 3rem auto 5rem;
+      width: 45vw;
 
       .cta {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: .5rem;
+
+        .button {
+          @include button;
+          font-size: $font-size-buttons * 0.5;
+          font-weight: 900;
+        }
       }
 
       .fieldset {
@@ -47,9 +55,96 @@
         gap: .5rem;
         margin: 0;
 
+        .basic {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          margin-top: .7rem;
+
+          .flexbox-item {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: .7rem;
+
+            .input-container {
+              width: 88%;
+              min-width: 95%;
+
+              .input {
+                width: 75%;
+                min-width: 90%;
+                margin-bottom: .9rem;
+                padding: .2rem;
+                color: $--dark;
+                font-family: $font-family-text;
+                font-size: calc($font-size / 2.2);
+                border: 1px solid transparent;
+                border-radius: 2px;
+
+                &.ng-invalid.ng-touched, select.ng-invalid.ng-touched {
+                  border-left: 3px solid $-color-error;
+                }
+                &.ng-valid.ng-touched, select.ng-valid.ng-touched {
+                  border-left: 3px solid $-color-success;
+                  color: $-color-success;
+                }
+              }
+
+              .select {
+                width: 100%;
+                min-width: 93%;
+              }
+            }
+          }
+
+          .preview {
+            width: 15rem;
+            height: 12rem;
+            border: 1px solid $-color-slash;
+
+            img {
+              border: none;
+              width: 100%;
+              height: 100%;
+              color: $-color-slash;
+              padding: 2px 0 0 2px;
+            }
+          }
+
+
+        }
+
+        .ingredients {
+          display: flex;
+
+          .single-input {
+            width: 6rem;
+          }
+          .x {
+            height: 1.2rem;
+            margin: .8rem 0 0 0;
+          }
+          .delimiter {
+            padding: .03rem;
+          }
+        }
+
+        .add {
+          margin-top: -35px;
+
+          .button {
+            @include button;
+            width: 12rem;
+            margin-top: 2rem;
+            font-size: $font-size-buttons * 0.4;
+            font-weight: 900;
+          }
+
+        }
+
         .darken {
           color: $h-c-light;
-
         }
 
         .label {

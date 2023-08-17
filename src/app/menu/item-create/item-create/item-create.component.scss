@@ -46,7 +46,7 @@
 
     .form {
       max-width: 80vw;
-      width: 80vw;
+      width: 40vw;
       margin: 0 auto 5rem;
 
       .controlls {
@@ -152,8 +152,6 @@
               border-left: 3px solid $-color-success;
               color: $-color-success;
             }
-
-            // TODO: change bg-color of checkbox and radio
           }
         }
 

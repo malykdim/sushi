@@ -8,14 +8,15 @@
 }
 
 .item-list {
-  padding: 0 1rem;
-  list-style: none;
-  overflow: auto;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: center;
   gap: 1rem;
+
+  width: 100vw;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
 
 }
