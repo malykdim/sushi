@@ -103,10 +103,11 @@
                 }
 
                 .cta {
-
+                  display: flex;
+                  justify-content: center;
 
                   .button {
-                    width: 54.7%;
+                    width: 100%;
                     padding: 1rem 2rem;
                     font-family: $font-family-headings;
                     font-size: $font-size-buttons;

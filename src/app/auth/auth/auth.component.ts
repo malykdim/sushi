@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -11,20 +11,29 @@ import { AuthResponseData } from 'src/app/shared/interfaces/authResponseData';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent {
+export class AuthComponent implements OnInit {
   isLoginMode = true;
   isLoading = false;
   error: string | null = null;
+  loadedRoute = this.router.url;
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) {}
 
-  onSwitchMode() {
-    this.isLoginMode = !this.isLoginMode;
-    console.log('isLoginMode ? ' + this.isLoginMode);
+  ngOnInit(): void {
+    if (this.loadedRoute === '/user/signup') {
+      this.isLoginMode = false;
+    } else if (this.loadedRoute === '/user/login') {
+      this.isLoginMode = true;
+    }
   }
+
+
+  // onSwitchMode() {
+  //   this.isLoginMode = !this.isLoginMode;
+  // }
 
   onSubmit(form: NgForm) {
     if (!form.valid) {
