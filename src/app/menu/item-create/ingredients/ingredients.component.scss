@@ -34,6 +34,11 @@
         color: $--light;
       }
 
+      @media only screen and (max-width: 1900px) {
+        font-size: $font-size-buttons * 0.3;
+        margin-top: -.7rem;
+        padding: .6rem 1.6rem;
+      }
     }
   }
 

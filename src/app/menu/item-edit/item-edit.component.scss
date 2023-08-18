@@ -17,9 +17,13 @@
   background-origin: padding-box;
   background-repeat: no-repeat;
 
-  h2 {
+  .mode {
     font-weight: 100;
     color: $--light;
+
+    @media only screen and (max-width: 1900px) {
+      margin: .7rem auto;
+    }
   }
 
   .edit {
@@ -44,6 +48,10 @@
           @include button;
           font-size: $font-size-buttons * 0.5;
           font-weight: 900;
+
+          @media only screen and (max-width: 1900px) {
+            padding: .5rem 1.5rem;
+          }
         }
       }
 
@@ -139,6 +147,10 @@
             margin-top: 2rem;
             font-size: $font-size-buttons * 0.4;
             font-weight: 900;
+
+            @media only screen and (max-width: 1900px) {
+              padding: .5rem 1.5rem;
+            }
           }
 
         }
@@ -225,8 +237,12 @@
             background: #000;
             color: #fff;
           }
+        }
       }
 
+
+      @media only screen and (max-width: 1900px) {
+        width: 60vw;
       }
     }
   }

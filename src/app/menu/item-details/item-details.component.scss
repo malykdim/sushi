@@ -74,6 +74,9 @@
           font-family: $font-family-headings;
           font-weight: $font-weight;
 
+          @media only screen and (max-width: 1900px) {
+            font-size: $font-size;
+          }
         }
 
         .ingredients {
@@ -145,9 +148,17 @@
               box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.250);
           }
 
+          @media only screen and (max-width: 1900px) {
+            font-size: $font-size-buttons * .90;
+
+          }
         }
 
       }
+    }
+
+    @media only screen and (max-width: 1900px) {
+      margin: 1rem 0 0 0;
     }
 
     @media screen and (min-width: 600px) {

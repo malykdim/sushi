@@ -17,18 +17,6 @@
   background-origin: padding-box;
   background-repeat: no-repeat;
 
-  // .container {
-  //   font-family: $font-family-headings;
-
-
-  //   .form {
-  //     @include form-container;
-
-
-  //   }
-  // }
-
-
   .create {
     @include content;
     min-width: 100vw;
@@ -37,11 +25,15 @@
     font-family: $font-family-headings;
     font-size: $font-size * 1.5;
 
-    h2 {
+    .mode {
       font-size: $font-size * 1.5;
       font-weight: 100;
       color: $--light;
-      text-align: center
+      text-align: center;
+
+      @media only screen and (max-width: 1900px) {
+        margin: .5rem auto;
+      }
     }
 
     .form {
@@ -60,6 +52,12 @@
           @include button;
           font-size: $font-size-buttons * 0.5;
           font-weight: 900;
+
+          @media only screen and (max-width: 1900px) {
+            font-size: $font-size-buttons * 0.4;
+            margin: 0;
+            padding: .5rem 0;
+          }
         }
       }
 
@@ -118,6 +116,11 @@
                 height: 100%;
                 color: $-color-slash;
                 padding: 2px 0 0 2px;
+              }
+
+              @media only screen and (max-width: 1900px) {
+                width: 12.5rem;
+                height: 10.5rem;
               }
             }
           }
