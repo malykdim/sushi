@@ -122,6 +122,10 @@
                 width: 12.5rem;
                 height: 10.5rem;
               }
+              @media only screen and (max-width: 1440px) {
+                width: 10.5rem;
+                height: 8.5rem;
+              }
             }
           }
         }
@@ -208,9 +212,18 @@
             background: #000;
             color: #fff;
           }
+        }
+
+        @media only screen and (max-width: 1440px) {
+          width: 60vw;
+        }
       }
 
+      @media only screen and (max-width: 1440px) {
+        width: 60vw;
+        margin: 0 2rem 5rem;
       }
+
     }
   }
 }

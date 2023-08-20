@@ -40,6 +40,7 @@
       justify-content: center;
       width: 90%;
       margin-top: 0;
+
       .card {
         all: unset;
         width: 40%;
@@ -82,10 +83,25 @@
         .ingredients {
           margin-top: 1rem;
 
+
           span {
             font-family: $font-family-headings;
             font-size: calc($font-size / 0.85);
+
+            @media only screen and (max-width: 1440px) {
+              font-size: calc($font-size / 0.55);
+              margin: 0 auto;
+            }
           }
+
+          @media only screen and (max-width: 1440px) {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            margin: .7rem .5rem;
+          }
+
         }
 
         .badges {
@@ -164,6 +180,11 @@
     @media screen and (min-width: 600px) {
       flex-direction: row;
     }
+
+    @media only screen and (max-width: 480px) {
+      width: 100%;
+    }
+
 
   }
 

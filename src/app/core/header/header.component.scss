@@ -14,17 +14,16 @@
 
   @media only screen and (max-width: 1440) {
     // Macbook Pro 1440x900
-    height: 0;
+    height: 90%;
+    margin: 0 10px 0 0;
   }
   @media screen and (max-width: 900px) {
     font-size: $font-size * 0.8;
   }
   @media only screen and (max-width: 769) {
     // iPad 768x1024
-    height: 0;
   }
   @media only screen and (max-width: 391) {
     // iPhone 12 Pro 390x844
-    height: 0;
   }
 }

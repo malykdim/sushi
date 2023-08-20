@@ -19,4 +19,23 @@
   list-style: none;
   overflow: hidden;
 
+  @media only screen and (max-width: 1440px) {
+    height: 100vh;
+  }
+  @media only screen and (max-width: 1024px) {
+    // height: auto;
+    overflow: auto;
+    margin-top: 0;
+    gap: .5rem;
+  }
+  @media only screen and (max-width: 800px) {
+    // height: auto;
+  }
+  @media only screen and (max-width: 600px) {
+    height: 100vh;
+    overflow: auto;
+  }
+  @media only screen and (max-width: 480px) {
+
+  }
 }
